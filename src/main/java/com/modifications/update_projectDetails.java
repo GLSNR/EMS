@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -25,6 +26,7 @@ public class update_projectDetails {
 			System.out.println("Enter Project Starting Date in YYYY-MM-DD");
 			String p_DOB=Main.sc.next();
 			
+			
 			//performing string manipluations on user given date.
 			String[] dateParts = p_DOB.split("-");
 			String year = dateParts[0]; 
@@ -42,38 +44,26 @@ public class update_projectDetails {
 			
 			rs.next();
 			String db_date=rs.getString(1);
-			String[] dateParts2 = p_DOB.split("-");
+			String[] dateParts2 = db_date.split("-");
 			String year2 = dateParts2[0]; 
 			String month2 = dateParts2[1]; 
 			//conveting string to int;
 			int y2=Integer.parseInt(year2);
 			int m2=Integer.parseInt(month2);
 			
-			int r1=0,r2=0,q=0;
+			int q=0,e=0,f=0;
 			if(y1>y2)
 			{
-				//storing year difference
-				r1=y1-y2;
-			}
-			else
-			{
-				//storing year difference
-				r2=m1-m2;
-			}
-				
-			if(r2<0)
-			{
-				//if r2 is -ve changing it to positve.
-				r2=-(r2);
-			}
-			
-			if(r1>1)
-			{
 				q++;
 			}
-			else if(r2>6)
+			else if(y1-y2==1)
 			{
-				q++;
+				e=12-m1;
+				f=m2+e;
+				if(f>=6)
+				{
+					q++;
+				}
 			}
 			
 			
