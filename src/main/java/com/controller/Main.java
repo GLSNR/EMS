@@ -3,10 +3,10 @@ package com.controller;
 import java.sql.SQLException;
 import java.util.*;
 
+import com.InserData.cabPickups;
+import com.InserData.dependentsDetails;
+import com.InserData.empRegistrations;
 import com.connection.dbConnection;
-import com.emp.cabPickups;
-import com.emp.dependentsDetails;
-import com.emp.empRegistrations;
 import com.manager.empData;
 import com.modifications.update_DependentsDetails;
 import com.modifications.update_PickupDrop;
@@ -50,33 +50,6 @@ public class Main {
 			break;
 		}
 
-		
-		
-		
-		
-
-		//For employees registration.
-//		empRegistrations eR= new empRegistrations();
-//		eR.addEmp();
-		
-		
-		
-		//for adding nomines
-//		dependentsDetails dd= new dependentsDetails();
-//		dd.addDependents();
-		
-		
-		
-		//for adding cab pickup and drop up points
-//		cabPickups cP= new cabPickups();
-//		cP.cabPickDrop();
-		
-		//for updating cap pickup and drop points
-//		update_PickupDrop uPD= new update_PickupDrop();
-//		uPD.updatePickupDropDels();
-		
-		
-		
 		
 	}
 

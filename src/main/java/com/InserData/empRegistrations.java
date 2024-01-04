@@ -1,16 +1,16 @@
-package com.emp;
+package com.InserData;
 
 import java.sql.SQLException;
 
 import com.connection.dbConnection;
 
-public class dependentsDetails {
+public class empRegistrations {
 	
-	public void addDependents() throws ClassNotFoundException
+	public void addEmp()
 	{
 		try
 		{
-			String sql = "insert into dependent_details values(63,'VamshiDady','1977-01-09','father','89625385748')";
+			String sql = "insert into employee values(63,'Vamshi','Architech','vamshi@gmail.com','876572838','siva','active')";
 					
 			dbConnection.ps=dbConnection.con.prepareStatement(sql);
 			dbConnection.ps.execute();
@@ -21,5 +21,5 @@ public class dependentsDetails {
 			System.out.println(e);
 		}
 	}
-	
+
 }

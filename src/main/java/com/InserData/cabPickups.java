@@ -1,4 +1,4 @@
-package com.emp;
+package com.InserData;
 
 import java.sql.SQLException;
 
@@ -6,7 +6,7 @@ import com.connection.dbConnection;
 
 public class cabPickups {
 	
-	public void cabPickDrop() throws ClassNotFoundException
+	public static void main(String args[]) throws ClassNotFoundException
 	{
 		try
 		{
@@ -17,6 +17,7 @@ public class cabPickups {
 			
 		}
 		catch(SQLException e)
+		
 		{
 			System.out.println(e);
 		}

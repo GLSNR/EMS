@@ -26,16 +26,6 @@ public class update_projectDetails {
 			System.out.println("Enter Project Starting Date in YYYY-MM-DD");
 			String p_DOB=Main.sc.next();
 			
-			
-			//performing string manipluations on user given date.
-			String[] dateParts = p_DOB.split("-");
-			String year = dateParts[0]; 
-			String month = dateParts[1]; 
-			//conveting string to int;
-			int y1=Integer.parseInt(year);
-			int m1=Integer.parseInt(month);
-			
-
 			//query for select date form project table
 			String sql8= "select p_statdate from projcet_details where e_id=?";
 			dbConnection.ps=dbConnection.con.prepareStatement(sql8);
@@ -48,19 +38,44 @@ public class update_projectDetails {
 			String year2 = dateParts2[0]; 
 			String month2 = dateParts2[1]; 
 			//conveting string to int;
-			int y2=Integer.parseInt(year2);
-			int m2=Integer.parseInt(month2);
+			int y1=Integer.parseInt(year2);
+			int m1=Integer.parseInt(month2);
 			
-			int q=0,e=0,f=0;
-			if(y1>y2)
+			//performing string manipluations on user given date.
+			String[] dateParts = p_DOB.split("-");
+			String year = dateParts[0]; 
+			String month = dateParts[1]; 
+			//conveting string to int;
+			int y2=Integer.parseInt(year);
+			int m2=Integer.parseInt(month);
+			
+
+			
+			int q=0,a=0,b=0;
+			if(y2-y1>=2)
 			{
 				q++;
 			}
-			else if(y1-y2==1)
+			else if(y2-y1==1)
 			{
-				e=12-m1;
-				f=m2+e;
-				if(f>=6)
+				a=12-m1;
+				b=a+m2;
+				if(b>=6)
+				{
+					q++;
+				}
+			}
+			else if(y1-y2==0)
+			{
+				if(m1>m2)
+				{
+					b=m1-m2;
+				}
+				else
+				{
+					b=m2-m1;
+				}
+				if(b>=6)
 				{
 					q++;
 				}
@@ -80,6 +95,7 @@ public class update_projectDetails {
 				
 				dbConnection.ps.executeUpdate();
 				System.out.println("Project details updated sucussfully");
+				q=0;
 
 			}
 			else
@@ -97,69 +113,3 @@ public class update_projectDetails {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-////initilizing java method to get system calender
-//java.util.Date currDate = Calendar.getInstance().getTime();
-
-////Storing year value from db
-//int y1=check1.getYear();
-
-////Storing year value of system
-//int y2=currDate.getYear();
-////It will check the current year is grater than 
-//if(y2>y1)
-//{
-//	//checking year differce
-//   int r1=y2-y1;
-//}
-//else
-//{
-//	System.out.println("Please enter a valid year");
-//    System.exit(0);
-//}
-//
-
-////Storing month values from db
-//int m1=check1.getMonth();
-
-////storing month value form current date
-//int m2= currDate.getMonth()+1;
-////checking month difference
-//int r2=m2-m1;
-//if(r2<0)
-//{
-//	//if r2 is -ve changing it to positve.
-//	r2=-(r2);
-//}
-//
-////declaring a varible for executing query based on its count.
-//int q=0;
-//
-//
-//if(r1>1)
-//{
-//	q++;
-//}
-//else if(r2>6)
-//{
-//	q++;
-//}
-
-
